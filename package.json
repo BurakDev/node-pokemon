@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/BurakDev/node-pokemon/issues"
   },
-  "homepage": "https://github.com/BurakDev/node-pokemon#readme"
+  "homepage": "https://github.com/BurakDev/node-pokemon#readme",
+  "dependencies": {
+    "protobufjs": "^5.0.1"
+  }
 }
