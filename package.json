@@ -1,0 +1,27 @@
+{
+  "name": "node-pokemon",
+  "version": "0.0.1",
+  "description": "Pokemon Go API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BurakDev/node-pokemon.git"
+  },
+  "keywords": [
+    "niantic",
+    "pokemon",
+    "pokemon-go",
+    "api",
+    "go",
+    "pokemon"
+  ],
+  "author": "Burak (burak@burak.fr)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BurakDev/node-pokemon/issues"
+  },
+  "homepage": "https://github.com/BurakDev/node-pokemon#readme"
+}
