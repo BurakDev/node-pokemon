@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/BurakDev/node-pokemon#readme",
   "dependencies": {
+    "gpsoauthnode": "0.0.5",
     "protobufjs": "^5.0.1"
   }
 }
