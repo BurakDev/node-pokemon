@@ -1,6 +1,6 @@
 {
   "name": "node-pokemon",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Pokemon Go API",
   "main": "index.js",
   "scripts": {
