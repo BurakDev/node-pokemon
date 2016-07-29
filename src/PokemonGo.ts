@@ -5,6 +5,7 @@
 import ProviderType from './Auth/ProviderType';
 import GoogleProvider from './Auth/GoogleProvider';
 import ProtoBuf = require('protobufjs');
+import request = require('request');
 
 /* ProtoBuf building */
 let builder: ProtoBuf.ProtoBuilder = ProtoBuf.loadProtoFile('../proto/POGOProtos.proto');
@@ -24,11 +25,20 @@ export default class PokemonGo {
 	private altitude: number;
 
 	private pokemonProto: any;
+	private cookieJar: request.CookieJar;
+	private request: request.RequestAPI<request.Request, request.CoreOptions, request.UrlOptions>;
+
+	public static API_URL = "https://pgorelease.nianticlabs.com/plfe/rpc";
 
 	public constructor() {
 		console.log(RequestType.GET_PLAYER);
 		console.log(new Messages.EchoMessage().encode());
 		console.log(new Request(2).encode());
+
+		this.cookieJar = request.jar();
+		this.request = request.defaults({
+			jar: this.cookieJar
+		});
 	}
 
 	public login(username: string, password: string, providerType: ProviderType, callback: (err) => void): void {
