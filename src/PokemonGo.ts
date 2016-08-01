@@ -4,6 +4,7 @@
 
 import ProviderType from './Auth/ProviderType';
 import GoogleProvider from './Auth/GoogleProvider';
+import PokemonClubProvider from './Auth/PokemonClubProvider';
 import ProtoBuf = require('protobufjs');
 import request = require('request');
 
@@ -70,6 +71,10 @@ export default class PokemonGo {
 			new GoogleProvider().login(username, password, this, function(err, token) {
 				callback(err, token);
 			});
+		} else if(providerType == ProviderType.PTC) {
+			new PokemonClubProvider().login(username, password, this, function(err, token) {
+				callback(err, token);
+			});
 		} else {
 			callback(new Error("Invalid provider"), null);
 		}
@@ -79,9 +84,8 @@ export default class PokemonGo {
 		let req = [new Request(RequestType.GET_PLAYER), new Request(RequestType.GET_HATCHED_EGGS), new Request(RequestType.GET_INVENTORY), new Request(RequestType.CHECK_AWARDED_BADGES), new Request(RequestType.DOWNLOAD_SETTINGS)];
 		let self: PokemonGo = this;
 		this.apiRequest(PokemonGo.API_URL, this.token, req, function(err, ret) {
-			if(err){
+			if(err)
 				return callback(err, null);
-			}
 
 			let apiEndpoint = "https://" + ret.api_url + "/rpc";
 			self.setApiEndpoint(apiEndpoint);

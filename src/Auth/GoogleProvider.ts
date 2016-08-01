@@ -13,9 +13,9 @@ export default class GoogleProvider extends Provider {
 		google.login(username, password, GoogleProvider.androidId, function(err, data: { androidId: string, masterToken: string }) {
 			if (data) {
 				google.oauth(username, data.masterToken, data.androidId, GoogleProvider.oauthService, GoogleProvider.app, GoogleProvider.clientSig, function(err, token) {
-					if (err) {
-						callback(err, null);
-					}
+					if (err)
+						return callback(err, null);
+
 					self.setToken(token.Auth);
 					callback(null, token.Auth);
 				});
