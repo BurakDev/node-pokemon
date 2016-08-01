@@ -21,7 +21,7 @@ export default class PokemonClubProvider extends Provider {
 			if(body.trim().indexOf('<') === 0)
 				return callback(new Error('Invalide response from PTC server'), null);
 
-			let data:;
+			let data;
 			try {
 				data = JSON.parse(body);
 			} catch(err) {
